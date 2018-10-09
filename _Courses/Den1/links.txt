@@ -1,0 +1,12 @@
+
+
+https://www.codeproject.com/Articles/615139/An-Absolute-Beginners-Tutorial-on-Dependency-Inver
+
+https://www.tomdalling.com/blog/software-design/solid-class-design-the-dependency-inversion-principle/
+
+https://www.c-sharpcorner.com/article/onion-architecture-in-asp-net-core-mvc/
+
+https://crosp.net/blog/software-architecture/clean-architecture-part-1-databse-vs-domain/
+
+
+https://medium.com/@chrisverwijs/a-step-by-step-guide-to-using-ninject-for-dependency-injection-in-c-68a125bd7fa4

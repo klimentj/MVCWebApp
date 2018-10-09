@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WineAndDIne.Models.MenuViewModel>
+@{
+    ViewBag.Title = "Menus";
+}
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">Default Box Example</h3>
+        <div class="box-tools pull-right">
+            <!-- Buttons, labels, and many other things can be placed here! -->
+            <!-- Here is a label for example -->
+            <span class="label label-primary">Label</span>
+        </div>
+        <!-- /.box-tools -->
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <h2>Menus</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table" id="menuTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestaurantId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestaurantName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @*<tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestaurantId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestaurantName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>*@
+        </table>
+
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        SelectMenu("menuMenuLink");
+
+        //$("#menuTable").DataTable();
+
+            $('#menuTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajaxSource": "@Url.Action("GetMenuData", "Menu")",
+                "columns": [
+
+                    { "data": "Id" },
+                    { "data": "RestaurantName" },
+                    { "data": "Name" },
+                    {
+                        "class": "details-control",
+                        "orderable": false,                    
+                        "data": null,
+                        "defaultContent": "",
+                        "render": function (o) { return '<a href="#" class="btnMenuEdit"  data-key="' + o.Id + '"  >' + 'Edit' + '</a>'; }
+                    },
+                ]
+            });
+        
+        $("table").on("click", ".btnMenuEdit", function () {
+            var id = $(this).attr("data-key");
+            var url = '@Url.Action("GetMenuItems","Menu")' + "?id=" + id;
+            document.location = url;
+        });
+
+    });
+</script>

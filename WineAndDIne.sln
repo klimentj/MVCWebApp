@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine", "WineAndDIne\WineAndDine.csproj", "{393DFE5E-9B5C-4E05-AB85-5AA56693204B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{0F86743D-B41B-400B-8FB6-AC08CE6811A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.BL", "WineAndDine.BL\WineAndDine.BL.csproj", "{32840492-37D7-4F25-99B9-63E2F3922527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.BL.Models", "WineAndDine.BL.Models\WineAndDine.BL.Models.csproj", "{1501C9E1-988D-4FED-8086-37AB95734070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.BL.ContractInterfaces", "WineAndDine.BL.ContractInterfaces\WineAndDine.BL.ContractInterfaces.csproj", "{A0321458-2603-4AC1-B27C-F41538EC0020}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{7883F238-96A9-440F-A3B2-A6D4AE02D2C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.DL.SqlDataAccess", "WineAndDine.DL.SqlDataAccess\WineAndDine.DL.SqlDataAccess.csproj", "{DE01BA34-ED6C-4BF4-B9A0-14419932F0CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.DL.DataEntities", "WineAndDine.DL.DataEntities\WineAndDine.DL.DataEntities.csproj", "{8FE91687-376B-4C68-86CE-2D39C718902E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{89485469-6527-4154-B4D3-E29D4CA8DC35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.WebAPI", "WineAndDine.WebAPI\WineAndDine.WebAPI.csproj", "{8B247801-222B-4B89-B9FF-45D4F95CA029}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrations", "Integrations", "{D7A5713A-EA4D-442D-8CDB-A1CE48E8AEC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAndDine.TestMocks", "WineAndDine.TestMocks\WineAndDine.TestMocks.csproj", "{3D9D6C33-D0FF-4D9C-87A4-8A7F45166A78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{393DFE5E-9B5C-4E05-AB85-5AA56693204B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{393DFE5E-9B5C-4E05-AB85-5AA56693204B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{393DFE5E-9B5C-4E05-AB85-5AA56693204B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{393DFE5E-9B5C-4E05-AB85-5AA56693204B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32840492-37D7-4F25-99B9-63E2F3922527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32840492-37D7-4F25-99B9-63E2F3922527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32840492-37D7-4F25-99B9-63E2F3922527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32840492-37D7-4F25-99B9-63E2F3922527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1501C9E1-988D-4FED-8086-37AB95734070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1501C9E1-988D-4FED-8086-37AB95734070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1501C9E1-988D-4FED-8086-37AB95734070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1501C9E1-988D-4FED-8086-37AB95734070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0321458-2603-4AC1-B27C-F41538EC0020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0321458-2603-4AC1-B27C-F41538EC0020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0321458-2603-4AC1-B27C-F41538EC0020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0321458-2603-4AC1-B27C-F41538EC0020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE01BA34-ED6C-4BF4-B9A0-14419932F0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE01BA34-ED6C-4BF4-B9A0-14419932F0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE01BA34-ED6C-4BF4-B9A0-14419932F0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE01BA34-ED6C-4BF4-B9A0-14419932F0CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE91687-376B-4C68-86CE-2D39C718902E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE91687-376B-4C68-86CE-2D39C718902E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FE91687-376B-4C68-86CE-2D39C718902E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FE91687-376B-4C68-86CE-2D39C718902E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B247801-222B-4B89-B9FF-45D4F95CA029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B247801-222B-4B89-B9FF-45D4F95CA029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B247801-222B-4B89-B9FF-45D4F95CA029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B247801-222B-4B89-B9FF-45D4F95CA029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D9D6C33-D0FF-4D9C-87A4-8A7F45166A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D9D6C33-D0FF-4D9C-87A4-8A7F45166A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D9D6C33-D0FF-4D9C-87A4-8A7F45166A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D9D6C33-D0FF-4D9C-87A4-8A7F45166A78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{32840492-37D7-4F25-99B9-63E2F3922527} = {0F86743D-B41B-400B-8FB6-AC08CE6811A3}
+		{1501C9E1-988D-4FED-8086-37AB95734070} = {0F86743D-B41B-400B-8FB6-AC08CE6811A3}
+		{A0321458-2603-4AC1-B27C-F41538EC0020} = {0F86743D-B41B-400B-8FB6-AC08CE6811A3}
+		{DE01BA34-ED6C-4BF4-B9A0-14419932F0CF} = {7883F238-96A9-440F-A3B2-A6D4AE02D2C6}
+		{8FE91687-376B-4C68-86CE-2D39C718902E} = {7883F238-96A9-440F-A3B2-A6D4AE02D2C6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B5E2A98-9189-4F5E-9F3B-DC5580562C4C}
+	EndGlobalSection
+EndGlobal
