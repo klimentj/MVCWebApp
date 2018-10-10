@@ -1,4 +1,11 @@
 ﻿@model WineAndDIne.Models.MenuItemViewModel
+
+@{ #line 2 "C:\Users\Kliment.Jancheski\Documents\SEDC\mvc\gitMvc\WineAndDIne\Views\Menu\_EditMenuItem.cshtml"
+                /**/
+
+                var menuId = Model.Id;
+}
+
 <div class="box">
     <div class="box-header with-border">
         <div class="box-tools pull-right">
@@ -35,20 +42,20 @@
             e.preventDefault();
             var name = $("#txtName").val();
             var price = $("#txtPrice").val();
-            var id =@Model.Id;
+            var id =@menuId;
             var restarurantId = @ViewBag.RestaurantId;
 
             $.ajax({
-            type: "GET",
+            type: "POST",
             url: '@Url.Action("UpdateMenuItem", "Menu")',
-            contentType: "application/json",            
-            data: { id : id, restaurantId : restarurantId, name:name, price : price},
+            //contentType: "application/json",
+            data: { menuid : id, restaurantId : restarurantId, name:name, price : price},
                 success: function (response) {
 
                     $('#modalContainer .close-modal').click();
                     $('#tblMenuItems').DataTable().draw();
             }
-            }); 
+            });
             return false;
         });
 

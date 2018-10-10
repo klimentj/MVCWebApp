@@ -6,7 +6,6 @@
 
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">Default Box Example</h3>
         <div class="box-tools pull-right">
             <!-- Buttons, labels, and many other things can be placed here! -->
             <!-- Here is a label for example -->
@@ -17,7 +16,7 @@
     <!-- /.box-header -->
     <div class="box-body">
         <h2>Menus Items</h2>
-
+        <input type="button" name="name" value="Add Menu Item" onclick="AddMenuItem()" />
         <table id="tblMenuItems">
             <thead>
                 <tr>
@@ -36,27 +35,30 @@
     </div>
 </div>
 @*<div id="myModal" class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Confirmation</h4>
-            </div>
-            <div class="modal-body">
-                <p>Do you want to save changes you made to document before closing?</p>
-                <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to save changes you made to document before closing?</p>
+                    <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>*@
+    </div>*@
 
-<a href="#" role="button" class="btn btn-large btn-primary" onclick="showModal()">Launch Demo Modal</a>
 
-<div id="modalContainer"  class="modal" >
+<div id="modalContainer" class="modal">
+
+</div>
+
+<div id="modalContainerAdd" class="modal">
 
 </div>
 
@@ -101,7 +103,7 @@
                     url: url,
                     contentType: "application/json",
                     dataType: "text",
-                    success: function (response) 
+                    success: function (response)
                     {
                         $("#modalContainer").html(response);
                         $("#modalContainer").modal('show');
@@ -112,4 +114,18 @@
 
 
     });
+
+    function AddMenuItem()
+    {
+        var restaurantId = @ViewBag.id;
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Action("AddMenuItem","Menu")' + '?restaurantid=' +restaurantId,
+                        success: function (response)
+                        {
+                            $("#modalContainerAdd").html(response);
+                            $("#modalContainerAdd").modal('show');
+                        }
+                });
+    }
 </script>

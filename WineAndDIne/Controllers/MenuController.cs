@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using WineAndDine.BL.ContractInterfaces;
@@ -13,7 +14,7 @@ namespace WineAndDIne.Controllers
     {
         //public MenuController()
         //{ }
-        private readonly IRestaurantManagement _restaurantManagement;        
+        private readonly IRestaurantManagement _restaurantManagement;
         private readonly ILogger _logger;
 
         //constructior with Injection
@@ -40,7 +41,7 @@ namespace WineAndDIne.Controllers
         {
             List<Menu> menus = _restaurantManagement.GetMenus();
             List<MenuViewModel> vmList = MenuViewModel.MapList(menus);
-            
+
             return Json(new
             {
                 iTotalRecords = vmList.Count(),
@@ -57,6 +58,7 @@ namespace WineAndDIne.Controllers
 
         public ActionResult GetMenuItemsData(int id, int iDisplayStart, int iDisplayLength)
         {
+
             var data = _restaurantManagement.GetMenus()
                 .FirstOrDefault(t => t.RestaurantId == id).Items.Skip(iDisplayStart).Take(iDisplayLength);
 
@@ -72,7 +74,7 @@ namespace WineAndDIne.Controllers
 
         public ActionResult EditMenuItem(int restaurantId, int menuId)
         {
-            
+
             var menuItem = _restaurantManagement.GetMenus().
                 FirstOrDefault(t => t.Id == restaurantId)
                 .Items.FirstOrDefault(t => t.Id == menuId);
@@ -83,17 +85,43 @@ namespace WineAndDIne.Controllers
             return PartialView("_EditMenuItem", menu);
         }
 
-        
-        public ActionResult UpdateMenuItem(int id, int restaurantId, string name, decimal price)
+        [HttpPost]
+        public ActionResult UpdateMenuItem(int menuid, int restaurantId, string name, decimal price)
         {
             var menuItem = _restaurantManagement.GetMenus().
                 FirstOrDefault(t => t.Id == restaurantId)
-                .Items.FirstOrDefault(t => t.Id == id);
+                .Items.FirstOrDefault(t => t.Id == menuid);
 
             menuItem.Name = name;
             menuItem.Price = price;
 
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult AddMenuItem(int restaurantid)
+        {
+            MenuItemViewModel menu = new MenuItemViewModel();
+
+            List<SelectListItem> itemTypeList = (Enum.GetValues(typeof(ItemTypeEnum))
+            .Cast<ItemTypeEnum>()
+            .Select(e => new SelectListItem() { Text = e.ToString(), Value = ((int)e).ToString() }))
+            .ToList();
+
+            List<SelectListItem> drinkCategoryList = (Enum.GetValues(typeof(DrinkCategoryEnum))
+            .Cast<DrinkCategoryEnum>()
+            .Select(e => new SelectListItem() { Text = e.ToString(), Value = ((int)e).ToString() }))
+            .ToList();
+
+            List<SelectListItem> foodCategoryList = (Enum.GetValues(typeof(FoodCategoryEnum))
+            .Cast<FoodCategoryEnum>()
+            .Select(e => new SelectListItem() { Text = e.ToString(), Value = ((int)e).ToString() }))
+            .ToList();
+
+            ViewBag.itemTypeList = itemTypeList;
+            ViewBag.drinkCategoryList = drinkCategoryList;
+            ViewBag.foodCategoryList = foodCategoryList;
+
+            return PartialView("_AddMenuItem",menu);
         }
 
         public ActionResult Create()
@@ -104,11 +132,11 @@ namespace WineAndDIne.Controllers
             {
                 model.AllRestaurants.Add(new SelectListItem { Text = x.Name, Value = x.Id.ToString() });
             }
-            
+
 
             return View(model);
 
-            
+
         }
 
         [HttpPost]

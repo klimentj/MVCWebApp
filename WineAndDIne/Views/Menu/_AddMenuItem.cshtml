@@ -1,0 +1,78 @@
+﻿@model WineAndDIne.Models.MenuItemViewModel
+<div class="box">
+    <div class="box-header with-border">
+        <div class="box-tools pull-right">
+            <!-- Buttons, labels, and many other things can be placed here! -->
+            <!-- Here is a label for example -->
+        </div>
+        <!-- /.box-tools -->
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <form id="formEditMenuItem">
+            <div class="form-group">
+                <div class="col-sm-2">
+                    @Html.LabelFor(t => t.Name, new { @class = "col-sm-2 control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(t => t.Name, new { @class = "form-control", id = "txtName" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    @Html.LabelFor(t => t.FoodType, new { @class = "col-sm-2 control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(t => t.Id, (List<SelectListItem>)ViewBag.itemTypeList, new { @class = "form-control", id="ddlItemType" })
+                </div>
+            </div>
+            <div class="form-group" style="display: none" id="dvDrinks">
+                <div class="col-sm-2">
+                    @Html.LabelFor(t => t.DrinkCategory, new { @class = "col-sm-2 control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(t => t.Id, (List<SelectListItem>)ViewBag.drinkCategoryList, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group" id="dvFood">
+                <div class="col-sm-2">
+                    @Html.LabelFor(t => t.FoodCategory, new { @class = "col-sm-2 control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(t => t.Id, (List<SelectListItem>)ViewBag.foodCategoryList, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    @Html.LabelFor(t => t.Price, new { @class = "col-sm-2 control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(t => t.Price, new { @class = "form-control", id = "txtPrice" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    @Html.LabelFor(t => t.Description, new { @class = "col-sm-2 control-label" })
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(t => t.Description, new { @class = "form-control", id = "txtDescription" })
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#ddlItemType").on("change", function(){
+            if($(this).val() ==1)
+            {
+                $("#dvFood").show();
+                $("#dvDrinks").hide();
+            }else{
+                $("#dvFood").hide();
+                $("#dvDrinks").show();
+            }
+        });
+    });
+</script>
